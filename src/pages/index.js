@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import CountriesTable from '../components/CountriesTable/CountriesTable'
 import Layout from '../components/Layout/Layout'
 import SearchInput from '../components/SearchInput/SearchInput'
@@ -6,7 +5,6 @@ import styles from '../styles/Home.module.css'
 import { useState } from 'react'
 
 export default function Home({ countries }) {
-  // console.log(countries)
   const [keyword, setKeyword] = useState('')
   const filteredCountries = countries.filter((country) => {
     return (
@@ -15,8 +13,6 @@ export default function Home({ countries }) {
       country.subregion.toLowerCase().includes(keyword)
     )
   })
-
-  console.log(filteredCountries)
 
   const onInputChange = (e) => {
     e.preventDefault()
