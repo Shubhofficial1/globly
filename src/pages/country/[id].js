@@ -10,16 +10,16 @@ const getCountry = async (id) => {
 const Country = ({ country }) => {
   const [border, setBorder] = useState([])
 
-  const getBorders = async () => {
-    const borders = await Promise.all(
-      country.borders.map((border) => getCountry(border))
-    )
-    setBorder(borders)
-  }
+  // const getBorders = async () => {
+  //   const borders = await Promise.all(
+  //     country.borders.map((border) => getCountry(border))
+  //   )
+  //   setBorder(borders)
+  // }
 
-  useEffect(() => {
-    getBorders()
-  }, [])
+  // useEffect(() => {
+  //   getBorders()
+  // }, [])
 
   return (
     <Layout title={country.name}>
@@ -92,7 +92,7 @@ const Country = ({ country }) => {
               <div className={styles.details_panel_border_label}>
                 Neighboring Countries
               </div>
-              <div className={styles.details_panel_borders_container}>
+              {/* <div className={styles.details_panel_borders_container}>
                 {border.map(({ flag, name }) => (
                   <div className={styles.details_panel_country} key={name}>
                     <img src={flag} alt={name}></img>
@@ -101,7 +101,7 @@ const Country = ({ country }) => {
                     </div>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
