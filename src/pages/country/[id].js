@@ -1,6 +1,7 @@
 import Layout from '../../components/Layout/Layout'
 import styles from './Country.module.css'
 import { useState, useEffect } from 'react'
+
 const getCountry = async (id) => {
   const res = await fetch(`https://restcountries.com/v2/alpha/${id}`)
   const country = await res.json()
@@ -8,12 +9,13 @@ const getCountry = async (id) => {
 }
 
 const Country = ({ country }) => {
-  const [border, setBorder] = useState([])
+  // const [border, setBorder] = useState()
 
   // const getBorders = async () => {
   //   const borders = await Promise.all(
-  //     country.borders.map((border) => getCountry(border))
+  //     country.borders?.map((border) => getCountry(border))
   //   )
+
   //   setBorder(borders)
   // }
 
@@ -62,19 +64,19 @@ const Country = ({ country }) => {
               </div>
             </div>
 
-            <div className={styles.details_panel_row}>
+            {/* <div className={styles.details_panel_row}>
               <div className={styles.details_panel_label}>Language</div>
               <div className={styles.details_panel_value}>
                 {country.languages.map(({ name }) => name).join(', ')}
               </div>
-            </div>
+            </div> */}
 
-            <div className={styles.details_panel_row}>
+            {/* <div className={styles.details_panel_row}>
               <div className={styles.details_panel_label}>Currencies</div>
               <div className={styles.details_panel_value}>
                 {country.currencies.map(({ name }) => name).join(', ')}
               </div>
-            </div>
+            </div> */}
 
             <div className={styles.details_panel_row}>
               <div className={styles.details_panel_label}>Native name</div>
@@ -87,13 +89,13 @@ const Country = ({ country }) => {
               <div className={styles.details_panel_label}>Gini</div>
               <div className={styles.details_panel_value}>{country.gini} %</div>
             </div>
-
+            {/* 
             <div className={styles.details_panel_borders}>
               <div className={styles.details_panel_border_label}>
                 Neighboring Countries
               </div>
-              {/* <div className={styles.details_panel_borders_container}>
-                {border.map(({ flag, name }) => (
+              <div className={styles.details_panel_borders_container}>
+                {border?.map(({ flag, name }) => (
                   <div className={styles.details_panel_country} key={name}>
                     <img src={flag} alt={name}></img>
                     <div className={styles.details_panel_borders_name}>
@@ -101,8 +103,8 @@ const Country = ({ country }) => {
                     </div>
                   </div>
                 ))}
-              </div> */}
-            </div>
+              </div>
+            </div> */}
           </div>
         </div>
       </div>
